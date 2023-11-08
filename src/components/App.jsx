@@ -4,6 +4,7 @@ import { ErrorPage } from "../pages/ErrorPage";
 import { Favorites } from "../pages/favorites";
 
 import { HomePage } from "../pages/homePage";
+import { Main } from "../pages/Main";
 
 const ROUTER = {
   HOMEPAGE: "/",
@@ -16,8 +17,12 @@ const router = createBrowserRouter(
     {
       path: ROUTER.HOMEPAGE,
       errorElement: <ErrorPage />,
-      element: <HomePage />,
+      element: <Main />,
       children: [
+        {
+          path: ROUTER.HOMEPAGE,
+          element: <HomePage />,
+        },
         {
           path: ROUTER.CATALOG,
           element: <Catalog />,
