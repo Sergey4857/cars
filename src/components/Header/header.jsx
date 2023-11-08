@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Wrap } from "./Header.styled";
 
-export function Header() {
+export default function Header() {
   return (
     <Wrap>
       <Link to="/">HomePage</Link>
