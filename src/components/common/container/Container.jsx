@@ -1,5 +1,5 @@
 import { Wrap } from "./Container.styled";
 
-export function Container() {
-  return <Wrap></Wrap>;
+export function Container({ children }) {
+  return <Wrap>{children}</Wrap>;
 }
