@@ -1,10 +1,30 @@
+import { useEffect, useState } from "react";
+
+import axios from "axios";
+import { Container } from "../../components/common/container/Container";
+import { CatalogList } from "../../components/catalogLIst/catalogList";
+
+const BaseUrl = "https://654b817e5b38a59f28ef32f6.mockapi.io/";
+
 export default function Catalog() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(`${BaseUrl}/advert`);
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
-    <p>
-      Catalog Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
-      quis, obcaecati veritatis expedita reprehenderit maxime sint sed. Commodi
-      asperiores itaque, sapiente maxime quia sed sunt incidunt sint alias
-      corrupti laboriosam.
-    </p>
+    <Container>
+      <CatalogList data={data} />
+    </Container>
   );
 }
