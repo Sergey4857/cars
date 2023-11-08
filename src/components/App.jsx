@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Catalog from "../pages/catalog";
-import { ErrorPage } from "../pages/ErrorPage";
-import { Favorites } from "../pages/favorites";
+import Catalog from "../pages/CatalogPage/Catalog";
+import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
+import { Favorites } from "../pages/FavoritesPage/Favorites";
 
-import { HomePage } from "../pages/homePage";
-import { Main } from "../pages/Main";
+import { HomePage } from "../pages/HomePage/HomePage";
+import { Main } from "../pages/Main/Main";
 
 const ROUTER = {
   HOMEPAGE: "/",
