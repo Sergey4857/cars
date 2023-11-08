@@ -7,7 +7,7 @@ import { Global, ThemeProvider } from "@emotion/react";
 
 import { GlobalStyles, theme } from "./styles";
 
-import App from "components/App";
+import App from "../src/components/App";
 // import Loader from "components/Loader/Loader";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
