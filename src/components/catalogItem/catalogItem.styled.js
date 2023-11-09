@@ -34,7 +34,7 @@ export const ModelWrap = styled.div`
   gap: 3px;
   margin-bottom: 8px;
 `;
-export const ModelDesc = styled.span`
+export const ModelNumb = styled.span`
   color: #3470ff;
   font-size: 16px;
   font-weight: 500;
@@ -50,17 +50,19 @@ export const Button = styled.button`
   align-items: center;
   border-radius: 12px;
   background-color: #3470ff;
-
+  margin-top: 28px;
   font-size: 14px;
   font-weight: 600;
   line-height: calc(20 / 14);
   color: #fff;
 `;
 
-export const ModelTags = styled.span`
+export const ModelTags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   font-weight: 400;
-  line-height: 1.5;
-  margin-bottom: 28px;
+  line-height: calc(18 / 12);
 `;

@@ -73,7 +73,7 @@ export const CloseModalButton = styled.button`
   width: 22px;
   height: 22px;
   color: ${({ theme }) => theme.color.white};
-  background-color: red;
+  background-color: transparent;
   border: none;
   display: flex;
   align-items: center;
@@ -105,8 +105,60 @@ export const CloseModalIcon = styled.svg`
 `;
 
 export const CarsModal = styled.div`
+  padding: 40px;
   width: 541px;
   height: 752px;
   background: #fff;
   border-radius: 24px;
+`;
+
+export const ModalImage = styled.img`
+  max-width: 461px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 14px;
+  height: 249px;
+  border-radius: 24px;
+`;
+
+export const ModalDesc = styled.p`
+  color: #121417;
+  font-size: 14px;
+  line-height: calc(20 / 14);
+  margin-top: 14px;
+`;
+
+export const ModalTitle = styled.h2`
+  color: #121417;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: calc(20 / 14);
+  margin-bottom: 8px;
+  margin-top: 24px;
+`;
+
+export const Conditions = styled.p``;
+
+export const StyledLink = styled.a`
+  display: inline-flex;
+  padding: 12px 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: #3470ff;
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: calc(20 / 14);
+  margin-top: 24px;
+`;
+
+export const DecorSpan = styled.span`
+  display: flex;
+  width: 1px;
+  height: 16px;
+  margin-left: 6px;
+  margin-right: 6px;
+  background-color: rgba(18, 20, 23, 0.1);
 `;

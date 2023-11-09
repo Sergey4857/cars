@@ -1,9 +1,10 @@
 import { useState } from "react";
 import ModalWindow from "../modal/modal";
+import { DecorSpan } from "../modal/modal.styled";
 import {
   Button,
   ContentImage,
-  ModelDesc,
+  ModelNumb,
   ModelPrise,
   ModelTags,
   ModelText,
@@ -22,6 +23,9 @@ export function CatalogItem(props) {
     rentalPrice,
     address,
     rentalCompany,
+    rentalConditions,
+    type,
+    functionalities,
   } = props;
   const [openModal, setOpenModal] = useState(false);
 
@@ -38,13 +42,23 @@ export function CatalogItem(props) {
         <ContentImage src={img}></ContentImage>
         <ModelWrap>
           <ModelText>{make}</ModelText>
-          {model && <ModelDesc>{model},</ModelDesc>}{" "}
+          {model && <ModelNumb>{model},</ModelNumb>}{" "}
           <ModelText>{year}</ModelText>
           <ModelPrise>{rentalPrice}</ModelPrise>
         </ModelWrap>
 
         <ModelTags>
-          {address} | {id} | {model} | {rentalCompany} |
+          {address?.split(",")[1]}
+          <DecorSpan />
+          {address?.split(",")[2]}
+          <DecorSpan />
+          {rentalCompany}
+          <DecorSpan />
+          Premium {type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()}
+          <DecorSpan />
+          {model}
+          <DecorSpan />
+          {id}
         </ModelTags>
 
         <Button onClick={handleOpen}>Learn more</Button>
