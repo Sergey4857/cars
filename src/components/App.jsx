@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Catalog from "../pages/CatalogPage/Catalog";
+import { Catalog } from "../pages/CatalogPage/Catalog";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import { Favorites } from "../pages/FavoritesPage/Favorites";
 
@@ -20,7 +20,7 @@ const router = createBrowserRouter(
       element: <Main />,
       children: [
         {
-          path: ROUTER.HOMEPAGE,
+          index: true,
           element: <HomePage />,
         },
         {

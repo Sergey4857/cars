@@ -4,15 +4,16 @@ import axios from "axios";
 import { Container } from "../../components/common/container/Container";
 import { CatalogList } from "../../components/catalogLIst/catalogList";
 import { LoadMore } from "./Catalog.styled";
-const BaseUrl = "https://654b817e5b38a59f28ef32f6.mockapi.io/";
+const BaseUrl = "https://654e19fbcbc3253557425b91.mockapi.io";
 
-export default function Catalog() {
+export function Catalog() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(12);
   const [isLoading, setIsLoading] = useState(false);
   const [showButton, setShowButton] = useState(true);
 
+  // signal controller signal
   useEffect(() => {
     async function fetchData() {
       try {

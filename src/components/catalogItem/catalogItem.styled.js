@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const StyledItem = styled.li`
   display: flex;
-
+  position: relative;
   flex-direction: column;
   width: calc((100% - 87px) / 4);
   outline: 2px solid green;
@@ -65,4 +65,18 @@ export const ModelTags = styled.div`
   font-size: 12px;
   font-weight: 400;
   line-height: calc(18 / 12);
+`;
+export const FavoriteButton = styled.button`
+  width: 18px;
+  height: 18px;
+  display: block;
+  background-color: transparent;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+`;
+
+export const SvgHeart = styled.svg`
+  width: 18px;
+  height: 18px;
 `;

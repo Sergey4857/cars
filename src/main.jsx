@@ -13,14 +13,12 @@ import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <Global styles={GlobalStyles} />
-      <Provider store={store}>
-        {/* <PersistGate loading={<Loader />} persistor={persistor}> */}
-        <App />
-        {/* </PersistGate> */}
-      </Provider>
-    </ThemeProvider>
-  </React.StrictMode>
+  <ThemeProvider theme={theme}>
+    <Global styles={GlobalStyles} />
+    <Provider store={store}>
+      {/* <PersistGate loading={<Loader />} persistor={persistor}> */}
+      <App />
+      {/* </PersistGate> */}
+    </Provider>
+  </ThemeProvider>
 );
