@@ -16,7 +16,9 @@ import {
 
 import sprite from "../../assets/imgs_sprite/sprite.svg";
 import { useDispatch } from "react-redux";
-import { addFavoriteCar } from "../../redux/CarsSlice";
+import { useSelector } from "react-redux";
+import { addFavoriteCar, removeFavoriteCar } from "../../redux/CarsSlice";
+import { selectFavoriteCars } from "../../redux/Selectors";
 
 export function CatalogItem(props) {
   const {
@@ -36,6 +38,7 @@ export function CatalogItem(props) {
   const [openModal, setOpenModal] = useState(false);
 
   const [addFavorite, setAddFavorite] = useState(false);
+  const favoriteCars = useSelector(selectFavoriteCars);
 
   const dispatch = useDispatch();
 
@@ -46,20 +49,23 @@ export function CatalogItem(props) {
     setOpenModal(false);
   };
 
-  if (addFavorite) {
-    dispatch(addFavoriteCar(props));
-  }
+  const handleClick = () => {
+    setAddFavorite(!addFavorite);
+    if (favoriteCars.find((car) => car.id === id)) {
+      dispatch(removeFavoriteCar(id));
+      return;
+    }
+    if (!addFavorite) {
+      dispatch(addFavoriteCar(props));
+    }
+  };
 
   return (
     <>
       <StyledItem>
-        <FavoriteButton
-          onClick={() => {
-            setAddFavorite(!addFavorite);
-          }}
-        >
+        <FavoriteButton onClick={handleClick}>
           <SvgHeart width={18} height={18}>
-            {addFavorite ? (
+            {favoriteCars.some((car) => car.id === id) ? (
               <use href={`${sprite}#icon-active`}></use>
             ) : (
               <use href={`${sprite}#icon-normal`}></use>

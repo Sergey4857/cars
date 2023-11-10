@@ -1,3 +1,3 @@
-export const selectCars = (state) => state.cars.allCars;
+export const selectLoading = (state) => state.cars.isLoading;
 
 export const selectFavoriteCars = (state) => state.cars.favoriteCars;
