@@ -5,7 +5,11 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
   plugins: [react(), svgr()],
   resolve: {
-    alias: {},
+    alias: {
+      src: "/src",
+      components: "/src/components",
+      pages: "/src/pages",
+    },
   },
   base: "/cars/",
 });
