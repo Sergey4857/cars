@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
-import { HeaderCommon } from "../../components/headerCommon/headerCommon";
+import Header from "../../components/header/Header";
 
 export function Main() {
   return (
     <>
-      <HeaderCommon />
+      <Header />
       <Suspense>
         <Outlet />
       </Suspense>
