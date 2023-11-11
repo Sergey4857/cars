@@ -1,9 +1,12 @@
 import { CatalogItem } from "../catalogItem/catalogItem";
+import Filters from "../filters/filters";
+
 import { CatalogUl } from "./catalogList.styled";
 
 export function CatalogList({ data }) {
   return (
     <>
+      <Filters />
       <CatalogUl>
         {data &&
           data?.map(
