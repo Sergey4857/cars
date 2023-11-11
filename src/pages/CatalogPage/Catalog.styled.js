@@ -8,7 +8,6 @@ export const LoadMore = styled.button`
   font-weight: 500;
   line-height: calc(24 / 16);
   background-color: transparent;
-  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
 `;

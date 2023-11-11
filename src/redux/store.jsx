@@ -10,8 +10,9 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import storage from "redux-persist/lib/storage";
 import { carsReducer } from "./CarsSlice";
+import { filterReducer } from "./filterSlice";
 
 const persistConfig = {
   key: "root",
@@ -21,7 +22,10 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, carsReducer);
 
 const store = configureStore({
-  reducer: { cars: persistedReducer },
+  reducer: {
+    cars: persistedReducer,
+    filter: filterReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

@@ -4,6 +4,9 @@ import axios from "axios";
 import { Container } from "../../components/common/container/Container";
 import { CatalogList } from "../../components/catalogLIst/catalogList";
 import { LoadMore } from "./Catalog.styled";
+import Filters from "../../components/filters/filters";
+import { useSelector } from "react-redux";
+import { selectFilter } from "../../redux/Selectors";
 const BaseUrl = "https://654e19fbcbc3253557425b91.mockapi.io";
 
 export function Catalog() {
@@ -13,7 +16,29 @@ export function Catalog() {
   const [isLoading, setIsLoading] = useState(false);
   const [showButton, setShowButton] = useState(true);
 
-  // signal controller signal
+  const filter = useSelector(selectFilter);
+
+  const filterCars = (car) => {
+    const isBrandMatch =
+      !filter.brand ||
+      filter.brand === "All brands" ||
+      car.make === filter.brand;
+
+    const isPriceMatch =
+      !filter.price ||
+      filter.price === "All prices" ||
+      parseInt(car.rentalPrice?.slice(1), 10) === filter.price;
+
+    const isMileageMatch =
+      !filter.from ||
+      !filter.to ||
+      (car.mileage >= filter.from && car.mileage <= filter.to);
+
+    return isBrandMatch && isPriceMatch && isMileageMatch;
+  };
+
+  const filteredCars = data?.filter(filterCars);
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -44,7 +69,8 @@ export function Catalog() {
 
   return (
     <Container>
-      <CatalogList data={data} />
+      <Filters />
+      <CatalogList data={filteredCars} />
       {showButton && !isLoading && (
         <LoadMore
           onClick={() => {
