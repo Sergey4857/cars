@@ -8,7 +8,6 @@ import ManropeBold from "../assets/fonts/Manrope-Bold.ttf";
 
 export const GlobalStyles = css`
   ${emotionNormalize}
-
   /* ========================= Reset styles ========================= */
   html,
   body,
