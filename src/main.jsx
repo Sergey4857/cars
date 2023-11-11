@@ -13,12 +13,14 @@ import React from "react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ThemeProvider theme={theme}>
-    <Global styles={GlobalStyles} />
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <App />
-      </PersistGate>
-    </Provider>
-  </ThemeProvider>
+  <React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <Global styles={GlobalStyles} />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
+      </Provider>
+    </ThemeProvider>
+  </React.StrictMode>
 );
