@@ -1,11 +1,12 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { Container } from "../../components/common/container/Container";
+
+import { HeaderCommon } from "../../components/headerCommon/headerCommon";
 
 export function Main() {
   return (
     <>
-      <Container />
+      <HeaderCommon />
       <Suspense>
         <Outlet />
       </Suspense>

@@ -1,4 +1,4 @@
-export function Header() {
+export function HeaderCommon() {
   return (
     <>
       <p>Its header</p>
