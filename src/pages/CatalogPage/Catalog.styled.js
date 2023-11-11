@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const StyledItem = styled.li``;
-
 export const LoadMore = styled.button`
   color: #3470ff;
   display: block;
