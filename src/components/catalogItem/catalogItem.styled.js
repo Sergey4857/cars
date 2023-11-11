@@ -4,8 +4,8 @@ export const StyledItem = styled.li`
   display: flex;
   position: relative;
   flex-direction: column;
+  height: 426px;
   width: calc((100% - 87px) / 4);
-  outline: 2px solid green;
 `;
 
 export const ContentImage = styled.img`
@@ -20,10 +20,18 @@ export const ModelText = styled.span`
   font-size: 16px;
   font-weight: 500;
   line-height: calc(24 / 16);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const ModelPrise = styled.span`
   margin-left: auto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(24 / 16);
+`;
+export const ModelYear = styled.span`
   font-size: 16px;
   font-weight: 500;
   line-height: calc(24 / 16);
@@ -39,6 +47,9 @@ export const ModelNumb = styled.span`
   font-size: 16px;
   font-weight: 500;
   line-height: calc(24 / 16);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const Button = styled.button`
@@ -50,7 +61,7 @@ export const Button = styled.button`
   align-items: center;
   border-radius: 12px;
   background-color: #3470ff;
-  margin-top: 28px;
+  margin-top: auto;
   font-size: 14px;
   font-weight: 600;
   line-height: calc(20 / 14);
@@ -65,6 +76,12 @@ export const ModelTags = styled.div`
   font-size: 12px;
   font-weight: 400;
   line-height: calc(18 / 12);
+`;
+export const ModelTag = styled.div`
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 export const FavoriteButton = styled.button`
   width: 18px;

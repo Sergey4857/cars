@@ -3,6 +3,7 @@ import { CatalogItem } from "../catalogItem/catalogItem";
 import { CatalogUl } from "./catalogList.styled";
 
 export function CatalogList({ data }) {
+  console.log(data);
   return (
     <>
       <CatalogUl>
@@ -24,6 +25,7 @@ export function CatalogList({ data }) {
               fuelConsumption,
               engineSize,
               accessories,
+              mileage,
             }) => (
               <CatalogItem
                 key={id}
@@ -42,6 +44,7 @@ export function CatalogList({ data }) {
                 fuelConsumption={fuelConsumption}
                 engineSize={engineSize}
                 accessories={accessories}
+                mileage={mileage}
               />
             )
           )}

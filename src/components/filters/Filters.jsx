@@ -4,6 +4,7 @@ import {
   InputFrom,
   InputGroup,
   InputTo,
+  Svg,
   Title,
   Wrap,
 } from "./Filters.styled";
@@ -15,6 +16,7 @@ import { SvgHeart } from "../catalogItem/catalogItem.styled";
 import { useDispatch } from "react-redux";
 import { filterCars } from "../../redux/filterSlice";
 import prices from "./price.json";
+import css from "./Dropdown.module.css";
 
 export default function Filters() {
   const initialState = {
@@ -59,19 +61,23 @@ export default function Filters() {
       <Group>
         <Title>Car brand</Title>
         <Dropdown
-          value={defaultModel}
+          value={filterData.brand}
           options={models}
           onChange={onBrandChange}
           placeholder="Enter the text"
+          className={`${css.dropDown} ${css.dropDownMakes}`}
+          controlClassName={css.dropDownCtrl}
+          placeholderClassName={css.dropDownPlaceholderMakes}
+          menuClassName={css.dropDownMenu}
           arrowClosed={
-            <SvgHeart>
-              <use href={sprite + "#icon-active"}></use>
-            </SvgHeart>
+            <Svg>
+              <use href={sprite + "#icon-down"}></use>
+            </Svg>
           }
           arrowOpen={
-            <SvgHeart>
-              <use href={sprite + "#icon-x"}></use>
-            </SvgHeart>
+            <Svg>
+              <use href={sprite + "#icon-up"}></use>
+            </Svg>
           }
         ></Dropdown>
       </Group>
@@ -83,15 +89,19 @@ export default function Filters() {
           options={prices}
           onChange={onPriceChange}
           placeholder="To $"
+          className={`${css.dropDown} ${css.dropDownPrices}`}
+          controlClassName={`${css.dropDownCtrl} ${css.dropDownCtrlPrc}`}
+          placeholderClassName={css.dropDownPlaceholderMakes}
+          menuClassName={css.dropDownMenu}
           arrowClosed={
-            <SvgHeart>
-              <use href={sprite + "#icon-active"}></use>
-            </SvgHeart>
+            <Svg>
+              <use href={sprite + "#icon-down"}></use>
+            </Svg>
           }
           arrowOpen={
-            <SvgHeart>
-              <use href={sprite + "#icon-x"}></use>
-            </SvgHeart>
+            <Svg>
+              <use href={sprite + "#icon-up"}></use>
+            </Svg>
           }
         ></Dropdown>
       </Group>
@@ -105,7 +115,7 @@ export default function Filters() {
             placeholder="From"
           ></InputFrom>
 
-          <InputTo name="to" onChange={onChange} placeholder="to"></InputTo>
+          <InputTo name="to" onChange={onChange} placeholder="To"></InputTo>
         </InputGroup>
       </Group>
 

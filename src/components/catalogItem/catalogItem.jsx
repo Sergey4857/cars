@@ -12,6 +12,8 @@ import {
   StyledItem,
   FavoriteButton,
   SvgHeart,
+  ModelYear,
+  ModelTag,
 } from "./catalogItem.styled";
 
 import sprite from "../../assets/imgs_sprite/sprite.svg";
@@ -19,6 +21,8 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { addFavoriteCar, removeFavoriteCar } from "../../redux/CarsSlice";
 import { selectFavoriteCars } from "../../redux/Selectors";
+
+import defaultPicture from "../../assets/imgs_sprite/no_img_300x225.jpg";
 
 export function CatalogItem(props) {
   const {
@@ -34,6 +38,7 @@ export function CatalogItem(props) {
     rentalConditions,
     type,
     functionalities,
+    accessories,
   } = props;
   const [openModal, setOpenModal] = useState(false);
 
@@ -72,26 +77,30 @@ export function CatalogItem(props) {
             )}
           </SvgHeart>
         </FavoriteButton>
-        <ContentImage src={img}></ContentImage>
+        <ContentImage src={img ? img : defaultPicture}></ContentImage>
         <ModelWrap>
           <ModelText>{make}</ModelText>
           {model && <ModelNumb>{model},</ModelNumb>}{" "}
-          <ModelText>{year}</ModelText>
+          <ModelYear>{year}</ModelYear>
           <ModelPrise>{rentalPrice}</ModelPrise>
         </ModelWrap>
 
         <ModelTags>
-          {address?.split(",")[1]}
+          <ModelTag>{address?.split(",")[1]}</ModelTag>
           <DecorSpan />
-          {address?.split(",")[2]}
+          <ModelTag>{address?.split(",")[2]}</ModelTag>
           <DecorSpan />
-          {rentalCompany}
+          <ModelTag>{rentalCompany}</ModelTag>
           <DecorSpan />
-          Premium {type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()}
+          <ModelTag>
+            Premium {type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()}
+          </ModelTag>
           <DecorSpan />
-          {model}
+          <ModelTag>{model}</ModelTag>
           <DecorSpan />
-          {id}
+          <ModelTag>{accessories[1]}</ModelTag>
+          <DecorSpan />
+          <ModelTag> {id}</ModelTag>
         </ModelTags>
 
         <Button onClick={handleOpen}>Learn more</Button>

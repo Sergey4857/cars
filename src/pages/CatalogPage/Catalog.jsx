@@ -26,7 +26,7 @@ export function Catalog() {
 
     const isPriceMatch =
       !filter.price ||
-      filter.price === "All prices" ||
+      filter.price === "All" ||
       parseInt(car.rentalPrice?.slice(1), 10) === filter.price;
 
     const isMileageMatch =

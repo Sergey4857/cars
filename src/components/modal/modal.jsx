@@ -22,6 +22,10 @@ import {
   Conditions,
   StyledLink,
   DecorSpan,
+  ModelWrapper,
+  ModelBox,
+  ConditionTag,
+  ConditionSpan,
 } from "./modal.styled";
 
 const number = "+380730000000";
@@ -57,7 +61,7 @@ export default function ModalWindow(props) {
       window.removeEventListener("keydown", onEscKeyPress);
     };
   }, [modalRoot.children.length, onShow, onClose]);
-
+  console.log(data.rentalConditions?.split("\n")[0]);
   return createPortal(
     <>
       <CSSTransition
@@ -93,19 +97,22 @@ export default function ModalWindow(props) {
             </ModelWrap>
 
             <ModelTags>
-              {data.address?.split(",")[1]}
-              <DecorSpan />
-              {data.address?.split(",")[2]}
-              <DecorSpan />
-              Id: {data.id}
-              <DecorSpan />
-              Type:{" "}
-              {data.type.charAt(0).toUpperCase() +
-                data.type.slice(1).toLowerCase()}
-              <DecorSpan />
-              Fuel Consumption: {data.fuelConsumption}
-              <DecorSpan />
-              Engine Size: {data.engineSize}
+              <ModelWrapper>
+                {data.address?.split(",")[1]}
+                <DecorSpan />
+                {data.address?.split(",")[2]}
+                <DecorSpan />
+                Id: {data.id}
+                <DecorSpan />
+                Type:{" "}
+                {data.type.charAt(0).toUpperCase() +
+                  data.type.slice(1).toLowerCase()}
+              </ModelWrapper>
+              <ModelBox>
+                Fuel Consumption: {data.fuelConsumption}
+                <DecorSpan />
+                Engine Size: {data.engineSize}
+              </ModelBox>
             </ModelTags>
             <ModalDesc>{data.description}</ModalDesc>
 
@@ -127,7 +134,35 @@ export default function ModalWindow(props) {
 
             <ModalTitle>Rental Conditions: </ModalTitle>
 
-            <Conditions>{data.rentalConditions}</Conditions>
+            <Conditions>
+              <ModelWrapper>
+                <ConditionTag>
+                  Minimum age:
+                  <ConditionSpan>
+                    {data.rentalConditions?.split("\n")[0].match(/\d+/)
+                      ? parseInt(
+                          data.rentalConditions?.split("\n")[0].match(/\d+/)[0],
+                          10
+                        )
+                      : null}
+                  </ConditionSpan>
+                </ConditionTag>
+                <ConditionTag>
+                  {data.rentalConditions?.split("\n")[1]}
+                </ConditionTag>
+              </ModelWrapper>
+              <ModelBox>
+                <ConditionTag>
+                  {data.rentalConditions?.split("\n")[2]}
+                </ConditionTag>
+                <ConditionTag>
+                  Mileage:<ConditionSpan>{data.mileage}</ConditionSpan>
+                </ConditionTag>
+                <ConditionTag>
+                  Price:<ConditionSpan>{data.rentalPrice}</ConditionSpan>
+                </ConditionTag>
+              </ModelBox>
+            </Conditions>
 
             <StyledLink href={`tel:${number}`}>Rental car</StyledLink>
           </CarsModal>

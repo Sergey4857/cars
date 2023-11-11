@@ -48,6 +48,7 @@ export function Favorites() {
             <CarName>{data.rentalPrice}</CarName>
             <DecorSpan />
             <CarImage src={data.img}></CarImage>
+
             <CarBtnDel
               onClick={() => {
                 dispatch(removeFavoriteCar(data.id));
