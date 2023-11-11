@@ -92,21 +92,6 @@ export default function ModalWindow(props) {
               <ModelText>{data.year}</ModelText>
             </ModelWrap>
 
-            {/* <ModelTags>
-              {address?.split(",")[1]}
-              <DecorSpan />
-              {address?.split(",")[2]}
-              <DecorSpan />
-              {rentalCompany}
-              <DecorSpan />
-              Premium{" "}
-              {type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()}
-              <DecorSpan />
-              {model}
-              <DecorSpan />
-              {id}
-            </ModelTags> */}
-
             <ModelTags>
               {data.address?.split(",")[1]}
               <DecorSpan />
