@@ -4,7 +4,7 @@ import axios from "axios";
 import { Container } from "../../components/common/container/Container";
 import { CatalogList } from "../../components/catalogLIst/catalogList";
 import { LoadMore } from "./Catalog.styled";
-import Filters from "../../components/filters/filters";
+import Filters from "../../components/filters/Filters";
 import { useSelector } from "react-redux";
 import { selectFilter } from "../../redux/Selectors";
 const BaseUrl = "https://654e19fbcbc3253557425b91.mockapi.io";
