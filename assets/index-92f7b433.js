@@ -225,7 +225,6 @@ template {
           rgba(0, 0, 0, 0.3) 100%
       `},transition:{main:"250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)",modal:"300ms ease-in-out"},boxShadow:{calendarButton:"0 0 5px 0.5px #EFEDE8, inset 0 0 5px 0px #EFEDE8",feedbackButton:"0 0 16px 0 #EFEDE8",dataIndicator:"0px 1px 10px 0px rgba(230, 83, 60, 0.80)"}},bE="/cars/assets/Manrope-Regular-2960175e.ttf",TE="/cars/assets/Manrope-Medium-562fb5d8.ttf",NE="/cars/assets/Manrope-Bold-ce687c0c.ttf",jE=Ff`
   ${_E}
-
   /* ========================= Reset styles ========================= */
   html,
   body,
