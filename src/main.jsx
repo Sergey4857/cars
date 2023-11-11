@@ -9,8 +9,6 @@ import { GlobalStyles, theme } from "./styles";
 import App from "../src/components/App";
 import React from "react";
 
-// import Loader from "components/Loader/Loader";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
