@@ -4,8 +4,6 @@ import {
   InputFrom,
   InputGroup,
   InputTo,
-  Option,
-  Select,
   Title,
   Wrap,
 } from "./Filters.styled";
