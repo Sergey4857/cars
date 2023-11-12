@@ -12,13 +12,12 @@ import sprite from "../../assets/imgs_sprite/sprite.svg";
 import models from "./makes.json";
 import Dropdown from "react-dropdown";
 import { useState } from "react";
-import { SvgHeart } from "../catalogItem/catalogItem.styled";
 import { useDispatch } from "react-redux";
 import { filterCars } from "../../redux/filterSlice";
 import prices from "./price.json";
 import css from "./Dropdown.module.css";
 
-export default function Filters() {
+export default function Filters({ setFilterClicked, setShowButton }) {
   const initialState = {
     brand: "",
     price: "",
@@ -26,7 +25,6 @@ export default function Filters() {
     to: "",
   };
   const dispatch = useDispatch();
-  const defaultModel = "enter the text";
   const [filterData, setFilterData] = useState(initialState);
 
   const handleClick = (e) => {
@@ -34,6 +32,8 @@ export default function Filters() {
     if (JSON.stringify(filterData) === JSON.stringify(initialState)) {
       return;
     }
+    setFilterClicked(true);
+    setShowButton(false);
     dispatch(filterCars(filterData));
   };
 
@@ -94,12 +94,12 @@ export default function Filters() {
           placeholderClassName={css.dropDownPlaceholderMakes}
           menuClassName={css.dropDownMenu}
           arrowClosed={
-            <Svg>
+            <Svg className="arrow-closed">
               <use href={sprite + "#icon-down"}></use>
             </Svg>
           }
           arrowOpen={
-            <Svg>
+            <Svg className="arrow-open">
               <use href={sprite + "#icon-up"}></use>
             </Svg>
           }

@@ -31,13 +31,10 @@ export function CatalogItem(props) {
     make,
     model,
     img,
-    description,
     rentalPrice,
     address,
     rentalCompany,
-    rentalConditions,
     type,
-    functionalities,
     accessories,
   } = props;
   const [openModal, setOpenModal] = useState(false);
@@ -64,7 +61,6 @@ export function CatalogItem(props) {
       dispatch(addFavoriteCar(props));
     }
   };
-  console.log(img);
   return (
     <>
       <StyledItem>

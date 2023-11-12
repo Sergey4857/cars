@@ -70,7 +70,6 @@ export const ModalDiv = styled.div`
 export const CloseModalButton = styled.button`
   width: 22px;
   height: 22px;
-  color: ${({ theme }) => theme.color.white};
   background-color: transparent;
   border: none;
   display: flex;
@@ -78,21 +77,14 @@ export const CloseModalButton = styled.button`
   justify-content: center;
   margin-left: auto;
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 16px;
+  right: 16px;
   padding: 0;
   transition: color ${({ theme }) => theme.transition.main};
 
   &:hover,
   &:focus {
     color: ${({ theme }) => theme.color.hover};
-  }
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    top: 16px;
-    right: 16px;
-    width: 26px;
-    height: 26px;
   }
 `;
 

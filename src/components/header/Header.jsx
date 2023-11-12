@@ -6,7 +6,6 @@ export default function Header() {
   return (
     <HeaderStyled>
       <Logo />
-
       <Link to="catalog">CATALOG</Link>
       <Link to="favorites">FAVORITES</Link>
     </HeaderStyled>

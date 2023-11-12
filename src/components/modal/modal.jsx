@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import {
   ModelNumb,
-  ModelPrise,
   ModelTags,
   ModelText,
   ModelWrap,
@@ -63,7 +62,7 @@ export default function ModalWindow(props) {
       window.removeEventListener("keydown", onEscKeyPress);
     };
   }, [modalRoot.children.length, onShow, onClose]);
-  console.log(data.rentalConditions?.split("\n")[0]);
+
   return createPortal(
     <>
       <CSSTransition

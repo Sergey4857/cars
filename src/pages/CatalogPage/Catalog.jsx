@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-
-import axios from "axios";
 import { Container } from "../../components/common/container/Container";
 import { CatalogList } from "../../components/catalogLIst/catalogList";
 import { LoadMore } from "./Catalog.styled";
@@ -9,7 +7,8 @@ import { useSelector } from "react-redux";
 import { selectFilter } from "../../redux/Selectors";
 import { Wrap } from "../Main/Main.styled";
 import Spinner from "../../components/Spinner/Spinner";
-const BaseUrl = "https://654e19fbcbc3253557425b91.mockapi.io";
+import { fetch, fetchAll } from "../../api/fetchCars";
+import { filterCars } from "../../components/filters/FilterLogic";
 
 export function Catalog() {
   const [data, setData] = useState([]);
@@ -18,36 +17,25 @@ export function Catalog() {
   const [isLoading, setIsLoading] = useState(false);
   const [showButton, setShowButton] = useState(true);
 
+  const [filterClicked, setFilterClicked] = useState(false);
   const filter = useSelector(selectFilter);
 
-  const filterCars = (car) => {
-    const isBrandMatch =
-      !filter.brand ||
-      filter.brand === "All brands" ||
-      car.make === filter.brand;
-
-    const isPriceMatch =
-      !filter.price ||
-      filter.price === "All" ||
-      parseInt(car.rentalPrice?.slice(1), 10) === filter.price;
-
-    const isMileageMatch =
-      !filter.from ||
-      !filter.to ||
-      (car.mileage >= filter.from && car.mileage <= filter.to);
-
-    return isBrandMatch && isPriceMatch && isMileageMatch;
+  const filterCar = (car) => {
+    return filterCars(car, filter);
   };
 
-  const filteredCars = data?.filter(filterCars);
+  let filteredCars = data?.filter(filterCar);
+
+  useEffect(() => {
+    if (filteredCars?.length !== data?.length) {
+      setShowButton(false);
+    }
+  }, [data?.length, filteredCars?.length]);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        setIsLoading(true);
-        const response = await axios.get(
-          `${BaseUrl}/advert/?limit=${perPage}&page=${page}`
-        );
+        const response = await fetch(perPage, page);
 
         if (response?.data.length < 12) {
           setShowButton(false);
@@ -69,11 +57,33 @@ export function Catalog() {
     fetchData();
   }, [page, perPage]);
 
+  useEffect(() => {
+    async function fetchAllData() {
+      try {
+        setIsLoading(true);
+
+        const response = await fetchAll();
+        setData(response.data);
+
+        setFilterClicked(false);
+        setShowButton(false);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    filterClicked && fetchAllData();
+  }, [filterClicked]);
+
   return (
     <>
       <Wrap>
         <Container>
-          <Filters />
+          <Filters
+            setFilterClicked={setFilterClicked}
+            setShowButton={setShowButton}
+          />
           <CatalogList data={filteredCars} />
           {showButton && !isLoading && (
             <LoadMore
