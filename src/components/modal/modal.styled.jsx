@@ -105,7 +105,7 @@ export const CloseModalIcon = styled.svg`
 export const CarsModal = styled.div`
   padding: 40px;
   width: 541px;
-  height: 752px;
+  min-height: 752px;
   background: #fff;
   border-radius: 24px;
 `;
