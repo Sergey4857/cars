@@ -8,6 +8,7 @@ import Filters from "../../components/filters/Filters";
 import { useSelector } from "react-redux";
 import { selectFilter } from "../../redux/Selectors";
 import { Wrap } from "../Main/Main.styled";
+import Spinner from "../../components/Spinner/Spinner";
 const BaseUrl = "https://654e19fbcbc3253557425b91.mockapi.io";
 
 export function Catalog() {
@@ -69,20 +70,23 @@ export function Catalog() {
   }, [page, perPage]);
 
   return (
-    <Wrap>
-      <Container>
-        <Filters />
-        <CatalogList data={filteredCars} />
-        {showButton && !isLoading && (
-          <LoadMore
-            onClick={() => {
-              setPage(page + 1);
-            }}
-          >
-            Load more
-          </LoadMore>
-        )}
-      </Container>
-    </Wrap>
+    <>
+      <Wrap>
+        <Container>
+          <Filters />
+          <CatalogList data={filteredCars} />
+          {showButton && !isLoading && (
+            <LoadMore
+              onClick={() => {
+                setPage(page + 1);
+              }}
+            >
+              Load more
+            </LoadMore>
+          )}
+        </Container>
+      </Wrap>
+      {isLoading && <Spinner />}
+    </>
   );
 }

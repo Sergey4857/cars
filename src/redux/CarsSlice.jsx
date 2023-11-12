@@ -5,8 +5,6 @@ const carsSlice = createSlice({
   initialState: {
     allCars: [],
     favoriteCars: [],
-    isLoading: false,
-    error: null,
   },
   reducers: {
     addFavoriteCar(state, action) {

@@ -70,12 +70,12 @@ export default function Filters() {
           placeholderClassName={css.dropDownPlaceholderMakes}
           menuClassName={css.dropDownMenu}
           arrowClosed={
-            <Svg>
+            <Svg className="arrow-closed">
               <use href={sprite + "#icon-down"}></use>
             </Svg>
           }
           arrowOpen={
-            <Svg>
+            <Svg className="arrow-open">
               <use href={sprite + "#icon-up"}></use>
             </Svg>
           }

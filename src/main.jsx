@@ -8,6 +8,7 @@ import { GlobalStyles, theme } from "./styles";
 
 import App from "../src/components/App";
 import React from "react";
+import Spinner from "./components/Spinner/Spinner";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +16,7 @@ root.render(
     <ThemeProvider theme={theme}>
       <Global styles={GlobalStyles} />
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+        <PersistGate loading={<Spinner />} persistor={persistor}>
           <App />
         </PersistGate>
       </Provider>
