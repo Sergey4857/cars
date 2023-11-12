@@ -64,7 +64,7 @@ export function CatalogItem(props) {
       dispatch(addFavoriteCar(props));
     }
   };
-
+  console.log(img);
   return (
     <>
       <StyledItem>
@@ -77,7 +77,12 @@ export function CatalogItem(props) {
             )}
           </SvgHeart>
         </FavoriteButton>
-        <ContentImage src={img ? img : defaultPicture}></ContentImage>
+        <ContentImage
+          src={img ? img : defaultPicture}
+          onError={(e) => {
+            e.target.src = defaultPicture;
+          }}
+        />
         <ModelWrap>
           <ModelText>{make}</ModelText>
           {model && <ModelNumb>{model},</ModelNumb>}{" "}

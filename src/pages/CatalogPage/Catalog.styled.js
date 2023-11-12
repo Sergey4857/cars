@@ -10,4 +10,9 @@ export const LoadMore = styled.button`
   background-color: transparent;
   margin-left: auto;
   margin-right: auto;
+  transition: color 200ms ease-in-out;
+
+  &:hover {
+    color: #0b44cd;
+  }
 `;

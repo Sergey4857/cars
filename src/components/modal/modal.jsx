@@ -9,6 +9,7 @@ import {
   ModelWrap,
 } from "../catalogItem/catalogItem.styled";
 import sprite from "../../assets/imgs_sprite/sprite.svg";
+import defaultPicture from "../../assets/imgs_sprite/no_img_300x225.jpg";
 
 import {
   CloseModalButton,
@@ -26,6 +27,7 @@ import {
   ModelBox,
   ConditionTag,
   ConditionSpan,
+  FontStyled,
 } from "./modal.styled";
 
 const number = "+380730000000";
@@ -89,7 +91,12 @@ export default function ModalWindow(props) {
           </CloseModalButton>
 
           <CarsModal>
-            <ModalImage src={data.img}></ModalImage>
+            <ModalImage
+              src={data.img}
+              onError={(e) => {
+                e.target.src = defaultPicture;
+              }}
+            ></ModalImage>
             <ModelWrap>
               <ModelText>{data.make}</ModelText>
               {data.model && <ModelNumb>{data.model},</ModelNumb>}
@@ -137,7 +144,7 @@ export default function ModalWindow(props) {
             <Conditions>
               <ModelWrapper>
                 <ConditionTag>
-                  Minimum age:
+                  <FontStyled>Minimum age:</FontStyled>
                   <ConditionSpan>
                     {data.rentalConditions?.split("\n")[0].match(/\d+/)
                       ? parseInt(
@@ -156,10 +163,14 @@ export default function ModalWindow(props) {
                   {data.rentalConditions?.split("\n")[2]}
                 </ConditionTag>
                 <ConditionTag>
-                  Mileage:<ConditionSpan>{data.mileage}</ConditionSpan>
+                  <FontStyled> Mileage:</FontStyled>
+                  <ConditionSpan>
+                    {(data.mileage / 1000).toFixed(3).replace(".", ",")}
+                  </ConditionSpan>
                 </ConditionTag>
                 <ConditionTag>
-                  Price:<ConditionSpan>{data.rentalPrice}</ConditionSpan>
+                  <FontStyled>Price:</FontStyled>{" "}
+                  <ConditionSpan>{data.rentalPrice}</ConditionSpan>
                 </ConditionTag>
               </ModelBox>
             </Conditions>

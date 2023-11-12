@@ -36,6 +36,12 @@ export const CarBtnDel = styled.button`
   border-radius: 12px;
   background: #3470ff;
   margin-left: auto;
+  color: #fff;
+  transition: background-color 200ms ease-in-out;
+  color: #fff;
+  &:hover {
+    background-color: #0b44cd;
+  }
 `;
 
 export const CarImage = styled.img`

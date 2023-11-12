@@ -31,7 +31,7 @@ export function Favorites() {
 
   return (
     <>
-      <Title>Your favorite cars</Title>
+      <Title>Your favorite cars:</Title>
       <CarUl>
         {favoriteCars?.map((data) => (
           <CarLi key={data.id}>

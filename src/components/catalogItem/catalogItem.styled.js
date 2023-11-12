@@ -65,7 +65,11 @@ export const Button = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: calc(20 / 14);
+  transition: background-color 200ms ease-in-out;
   color: #fff;
+  &:hover {
+    background-color: #0b44cd;
+  }
 `;
 
 export const ModelTags = styled.div`

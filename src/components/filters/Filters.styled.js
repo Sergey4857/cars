@@ -75,6 +75,10 @@ export const Button = styled.button`
   border-radius: 12px;
   background: #3470ff;
   color: #fff;
+  transition: background-color 200ms ease-in-out;
+  &:hover {
+    background-color: #0b44cd;
+  }
 `;
 
 export const Svg = styled.svg`

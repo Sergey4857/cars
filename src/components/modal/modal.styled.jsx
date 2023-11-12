@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const ModalBackdropDiv = styled.div`
-  background: ${({ theme }) => theme.color.backdropBackground};
+  background-color: rgba(18, 20, 23, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -35,8 +35,7 @@ export const ModalDiv = styled.div`
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  background-color: ${({ theme }) => theme.color.modalBackground};
-  /* height: 100vh; */
+
   border-radius: 12px;
 
   &.modal-wrapper-enter {
@@ -106,7 +105,7 @@ export const CloseModalIcon = styled.svg`
 export const CarsModal = styled.div`
   padding: 40px;
   width: 541px;
-  max-height: 752px;
+  height: 752px;
   background: #fff;
   border-radius: 24px;
 `;
@@ -155,6 +154,11 @@ export const StyledLink = styled.a`
   font-weight: 600;
   line-height: calc(20 / 14);
   margin-top: 24px;
+  transition: background-color 200ms ease-in-out;
+  color: #fff;
+  &:hover {
+    background-color: #0b44cd;
+  }
 `;
 
 export const DecorSpan = styled.span`
@@ -182,7 +186,8 @@ export const ConditionTag = styled.div`
   background: #f9f9f9;
 
   color: #363535;
-
+  font-family: Montserrat;
+  font-weight: 400;
   font-size: 12px;
 
   line-height: 1.5;
@@ -190,8 +195,13 @@ export const ConditionTag = styled.div`
 `;
 export const ConditionSpan = styled.span`
   color: #3470ff;
+  font-family: Montserrat;
   font-size: 12px;
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: -0.24px;
+  margin-left: 3px;
+`;
+export const FontStyled = styled.div`
+  font-family: Montserrat;
 `;
