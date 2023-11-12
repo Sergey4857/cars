@@ -5,6 +5,8 @@ import {
   ContactInfo,
   ContactTitle,
   Goal,
+  ImageCar1,
+  ImageCar2,
   PageContainer,
   Welcome,
   Wrapper,
@@ -28,6 +30,8 @@ export const HomePage = () => {
           </ContactInfo>
 
           <CatalogLink href="catalog">Go to the car catalog</CatalogLink>
+          <ImageCar1></ImageCar1>
+          <ImageCar2></ImageCar2>
         </Wrapper>
       </PageContainer>
     </Backround>

@@ -64,7 +64,6 @@ export function Catalog() {
 
         const response = await fetchAll();
         setData(response.data);
-
         setFilterClicked(false);
         setShowButton(false);
         setIsLoading(false);

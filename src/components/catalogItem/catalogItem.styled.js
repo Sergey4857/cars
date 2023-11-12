@@ -16,7 +16,7 @@ export const ContentImage = styled.img`
 `;
 
 export const ModelText = styled.span`
-  color: #121417;
+  color: ${({ theme }) => theme.color.black};
   font-size: 16px;
   font-weight: 500;
   line-height: calc(24 / 16);
@@ -43,7 +43,7 @@ export const ModelWrap = styled.div`
   margin-bottom: 8px;
 `;
 export const ModelNumb = styled.span`
-  color: #3470ff;
+  color: ${({ theme }) => theme.color.blue};
   font-size: 16px;
   font-weight: 500;
   line-height: calc(24 / 16);
@@ -60,15 +60,15 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background-color: #3470ff;
+  background-color: ${({ theme }) => theme.color.blue};
   margin-top: auto;
   font-size: 14px;
   font-weight: 600;
   line-height: calc(20 / 14);
   transition: background-color 200ms ease-in-out;
-  color: #fff;
+  color: ${({ theme }) => theme.color.fullWhite};
   &:hover {
-    background-color: #0b44cd;
+    background-color: ${({ theme }) => theme.color.hover};
   }
 `;
 

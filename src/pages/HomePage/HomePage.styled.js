@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import road from "../../assets/imgs_sprite/road.jpg";
+import camaro from "../../assets/imgs_sprite/camaro.png";
+import toyota from "../../assets/imgs_sprite/corolla.png";
 
 export const Backround = styled.div`
   background-image: url(${road});
@@ -12,7 +14,7 @@ export const PageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 560px;
+  height: 700px;
 `;
 
 export const Wrapper = styled.div`
@@ -22,6 +24,7 @@ export const Wrapper = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: relative;
 `;
 
 export const Welcome = styled.h1`
@@ -66,4 +69,29 @@ export const CatalogLink = styled.a`
   &:hover {
     background-color: #0056b3;
   }
+`;
+
+export const ImageCar1 = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  height: 200px;
+
+  background-image: url(${toyota});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+export const ImageCar2 = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 260px;
+  height: 200px;
+
+  background-image: url(${camaro});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 `;

@@ -4,13 +4,11 @@ import { Svg } from "../filters/Filters.styled";
 
 export default function Logo() {
   return (
-    <>
-      <LogoStyled to="/">
-        CarsRentUA
-        <Svg width={18} height={18}>
-          <use href={`${sprite}#icon-rent`}></use>
-        </Svg>
-      </LogoStyled>
-    </>
+    <LogoStyled to="/">
+      CarsRentUA
+      <Svg width={18} height={18}>
+        <use href={`${sprite}#icon-rent`}></use>
+      </Svg>
+    </LogoStyled>
   );
 }

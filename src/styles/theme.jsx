@@ -1,31 +1,23 @@
-/* Usage example:
-
-const SomeName = styled.div`
-  color: ${({theme}) => theme.color.white};
-  background-color: ${({theme}) => theme.color.input};
-  
-
-  &:hover, &:focus {
-    color: ${({theme}) => theme.color.orangeFirst};
-    background-color: ${({theme}) => theme.color.inputActive};
-  }
-
-  @media screen and (min-width: ${({theme}) => theme.breakpoint.tablet}) {
-    color: ${({theme}) => theme.color.black};
-    background-color: ${({theme}) => theme.color.orangeThird};
-  }
-`
-*/
-
 export const theme = {
   // Colors
   color: {
     black: "#121417",
     fullWhite: "#FFFFFF",
-    grayFirst: "rgba(18, 20, 23, 0.50)",
+    whiteFirst: "#f7f7fb",
+    blue: "#3470ff",
+    grayFirst: "#f7f7fb",
+    grayThird: "#8a8a89",
+    gray: "#005bb6",
+    hover: "#0b44cd",
+
+    transition: {
+      main: "250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)",
+      modal: "300ms ease-in-out",
+    },
+    // <------------>
 
     graySecond: "rgba(239, 237, 232, 0.65)",
-    grayThird: "rgba(239, 237, 232, 0.4)",
+
     grayFourth: "rgba(239, 237, 232, 0.05)",
     grayFifth: "rgba(239, 237, 232, 0.60)",
     grayBackground: "rgba(239, 237, 232, 1)",
@@ -38,7 +30,7 @@ export const theme = {
     border: "rgba(239, 237, 232, 0.30)",
 
     // hover
-    hover: "#EF8964",
+
     hoverBorder: "#E6533C",
 
     // Modal window colors
@@ -70,23 +62,7 @@ export const theme = {
     desktop: "1440px",
   },
 
-  gradient: {
-    exersises: `
-      rgba(0, 0, 0, 1) 1%,
-          rgba(0, 0, 0, 0.8) 20%,
-          rgba(0, 0, 0, 0.8) 20%,
-          rgba(0, 0, 0, 0.7) 40%,
-          rgba(0, 0, 0, 0.6) 70%,
-          rgba(0, 0, 0, 0.5) 100%,
-          rgba(0, 0, 0, 0.3) 100%
-      `,
-  },
-
   // Animation (transition) on hover & focus
-  transition: {
-    main: "250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)",
-    modal: "300ms ease-in-out",
-  },
 
   // box-shadow
   boxShadow: {

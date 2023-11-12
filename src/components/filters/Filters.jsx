@@ -4,6 +4,8 @@ import {
   InputFrom,
   InputGroup,
   InputTo,
+  LabelFrom,
+  LabelTo,
   Svg,
   Title,
   Wrap,
@@ -109,13 +111,22 @@ export default function Filters({ setFilterClicked, setShowButton }) {
       <Group>
         <Title>Сar mileage / km</Title>
         <InputGroup>
+          <LabelFrom htmlFor="from">From</LabelFrom>
           <InputFrom
+            id="from"
             name="from"
+            type="number"
             onChange={onChange}
-            placeholder="From"
           ></InputFrom>
 
-          <InputTo name="to" onChange={onChange} placeholder="To"></InputTo>
+          <LabelTo htmlFor="to">To</LabelTo>
+
+          <InputTo
+            id="to"
+            type="number"
+            name="to"
+            onChange={onChange}
+          ></InputTo>
         </InputGroup>
       </Group>
 

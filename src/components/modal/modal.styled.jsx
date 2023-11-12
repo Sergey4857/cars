@@ -37,7 +37,10 @@ export const ModalDiv = styled.div`
   translate: -50% -50%;
 
   border-radius: 12px;
-
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+  max-height: 90vh;
+  overflow: auto;
   &.modal-wrapper-enter {
     opacity: 0;
     scale: 0.5;
@@ -51,7 +54,6 @@ export const ModalDiv = styled.div`
       scale 200ms ease-in-out 200ms;
   }
 
-  /* For unmounting */
   &.modal-wrapper-exit {
     opacity: 1;
     scale: 1;
@@ -64,6 +66,18 @@ export const ModalDiv = styled.div`
     transition:
       opacity 200ms ease-in-out,
       scale 200ms ease-in-out;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 `;
 
@@ -80,7 +94,6 @@ export const CloseModalButton = styled.button`
   top: 16px;
   right: 16px;
   padding: 0;
-  transition: color ${({ theme }) => theme.transition.main};
 
   &:hover,
   &:focus {

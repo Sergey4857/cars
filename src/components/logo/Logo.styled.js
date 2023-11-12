@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 export const LogoStyled = styled(Link)`
   display: flex;
-  background-color: #f7f7fb;
-
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 23px;
   gap: 1px;
   height: 50px;
   justify-content: center;

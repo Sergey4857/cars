@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ModalWindow from "../../components/modal/modal";
+
 import { DecorSpan } from "../../components/modal/modal.styled";
 import { removeFavoriteCar } from "../../redux/CarsSlice";
 import { selectFavoriteCars } from "../../redux/Selectors";
 import { Backround } from "../FavoritesPage/Favorites.styled";
-import { Wrap } from "../Main/Main.styled";
+
+import defaultPicture from "../../assets/imgs_sprite/no_img_300x225.jpg";
 
 import {
   CarBtnDel,
@@ -38,7 +38,12 @@ export function Favorites() {
             <DecorSpan />
             <CarName>{data.rentalPrice}</CarName>
             <DecorSpan />
-            <CarImage src={data.img}></CarImage>
+            <CarImage
+              src={data.img}
+              onError={(e) => {
+                e.target.src = defaultPicture;
+              }}
+            ></CarImage>
 
             <CarBtnDel
               onClick={() => {

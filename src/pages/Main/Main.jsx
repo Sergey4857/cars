@@ -6,7 +6,6 @@ export function Main() {
   return (
     <>
       <Header />
-
       <Suspense>
         <Outlet />
       </Suspense>

@@ -9,7 +9,7 @@ export const Wrap = styled.div`
 `;
 
 export const Title = styled.p`
-  color: #8a8a89;
+  color: ${({ theme }) => theme.color.grayThird};
 
   font-size: 14px;
   font-weight: 500;
@@ -22,7 +22,7 @@ export const Select = styled.select`
   align-items: center;
   gap: 32px;
   border-radius: 14px;
-  background: #f7f7fb;
+  background: ${({ theme }) => theme.color.whiteFirst};
   border: transparent;
 `;
 export const Option = styled.option``;
@@ -35,18 +35,19 @@ export const Group = styled.div`
 
 export const InputGroup = styled.div`
   display: flex;
+  position: relative;
 `;
 export const InputFrom = styled.input`
   width: 160px;
   height: 48px;
   border-radius: 14px 0px 0px 14px;
   border-color: transparent;
-  padding-left: 24px;
+  padding-left: 70px;
 
-  background: #f7f7fb;
+  background: ${({ theme }) => theme.color.whiteFirst};
   border-right: 2px solid #e1e1e4;
   &::placeholder {
-    color: #121417;
+    color: ${({ theme }) => theme.color.black};
     font-size: 18px;
     font-weight: 500;
     line-height: calc(20 / 18);
@@ -55,17 +56,38 @@ export const InputFrom = styled.input`
 export const InputTo = styled.input`
   width: 160px;
   height: 48px;
-  padding-left: 24px;
+  padding-left: 45px;
   border-radius: 0px 14px 14px 0px;
   border-color: transparent;
-  background: #f7f7fb;
+  background: ${({ theme }) => theme.color.whiteFirst};
   &::placeholder {
-    color: #121417;
+    color: ${({ theme }) => theme.color.black};
     font-size: 18px;
     font-weight: 500;
     line-height: calc(20 / 18);
   }
 `;
+
+export const LabelFrom = styled.label`
+  position: absolute;
+  top: 13px;
+  left: 24px;
+  color: ${({ theme }) => theme.color.black};
+  font-size: 18px;
+  font-weight: 500;
+  line-height: calc(20 / 18);
+`;
+
+export const LabelTo = styled.label`
+  position: absolute;
+  top: 13px;
+  right: 120px;
+  color: ${({ theme }) => theme.color.black};
+  font-size: 18px;
+  font-weight: 500;
+  line-height: calc(20 / 18);
+`;
+
 export const Button = styled.button`
   padding: 14px 44px;
   margin-top: auto;
@@ -73,11 +95,11 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background: #3470ff;
-  color: #fff;
-  transition: background-color 200ms ease-in-out;
+  background: ${({ theme }) => theme.color.blue};
+  color: ${({ theme }) => theme.color.fullWhite};
+  transition: background-color 300ms ease-in-out;
   &:hover {
-    background-color: #0b44cd;
+    background-color: ${({ theme }) => theme.color.hover};
   }
 `;
 
