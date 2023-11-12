@@ -15,14 +15,8 @@ Welcome to the Car Rental Services platform! This platform provides users with a
 
 1. Visit our website at [carsRentUA.com](https://sergey4857.github.io/cars/).
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ## Contact Information
 
 For any inquiries or assistance, please contact us:
 
 - Email: [yasak.sergey@gmail.com]
-- Phone: [phone number]
-- Address: [ address]
