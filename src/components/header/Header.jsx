@@ -1,4 +1,3 @@
-import { Container } from "../common/container/Container";
 import Logo from "../logo/Logo";
 import {
   HeaderStyled,

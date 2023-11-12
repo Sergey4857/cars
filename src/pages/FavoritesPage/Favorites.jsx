@@ -22,7 +22,7 @@ export function Favorites() {
 
   return (
     <Backround>
-      <Title>Your favorite cars:</Title>
+      {favoriteCars.length > 0 && <Title>Your favorite cars:</Title>}
       <CarUl>
         {favoriteCars?.map((data) => (
           <CarLi key={data.id}>
