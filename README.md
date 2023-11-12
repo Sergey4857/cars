@@ -1,8 +1,28 @@
-# React + Vite
+# Car Rental Services - [Your Company Name]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+Welcome to the Car Rental Services platform! This platform provides users with an easy and convenient way to explore and book a variety of car rental services. Whether you're looking for a short-term rental, a luxurious limousine for a special event, or corporate fleet solutions, we've got you covered.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Diverse Fleet:** Choose from a wide selection of cars across different classes and models.
+- **Professional Drivers:** Experienced and responsible drivers dedicated to your comfort and safety.
+- **Corporate Solutions:** Tailored rental terms and cost-effective fleet agreements for businesses.
+- **Comprehensive Services:** Including insurance coverage, technical support, and 24/7 customer service.
+
+## Usage
+
+1. Visit our website at [your-website-url.com](https://sergey4857.github.io/cars/).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact Information
+
+For any inquiries or assistance, please contact us:
+
+- Email: [yasak.sergey@gmail.com]
+- Phone: [phone number]
+- Address: [ address]
