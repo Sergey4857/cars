@@ -6,7 +6,6 @@ export const Backround = styled.div`
   background-size: cover;
   width: 100%;
   height: 92vh;
-  padding-top: 0;
 `;
 
 export const PageContainer = styled.div`

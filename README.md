@@ -13,7 +13,7 @@ Welcome to the Car Rental Services platform! This platform provides users with a
 
 ## Usage
 
-1. Visit our website at [your-website-url.com](https://sergey4857.github.io/cars/).
+1. Visit our website at [carsRentUA.com](https://sergey4857.github.io/cars/).
 
 ## License
 

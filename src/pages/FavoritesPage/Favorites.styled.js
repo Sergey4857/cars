@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
+import favorites from "../../assets/imgs_sprite/favorites.jpg";
 
 export const Title = styled.h1`
+  padding-top: 50px;
   text-align: center;
   margin-bottom: 50px;
   font-weight: 500;
@@ -9,7 +11,9 @@ export const Title = styled.h1`
 export const CarName = styled.p``;
 
 export const CarUl = styled.ul`
-  max-width: 1200px;
+  max-width: 820px;
+  max-height: 500px;
+  overflow-y: auto;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -48,5 +52,12 @@ export const CarImage = styled.img`
   width: 100px;
   height: 60px;
   border-radius: 15px;
-  margin-left: 10px;
+  margin-left: auto;
+`;
+
+export const Backround = styled.div`
+  background-image: url(${favorites});
+  background-size: cover;
+  width: 100%;
+  height: 92vh;
 `;

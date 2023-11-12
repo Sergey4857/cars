@@ -4,6 +4,7 @@ import ModalWindow from "../../components/modal/modal";
 import { DecorSpan } from "../../components/modal/modal.styled";
 import { removeFavoriteCar } from "../../redux/CarsSlice";
 import { selectFavoriteCars } from "../../redux/Selectors";
+import { Backround } from "../FavoritesPage/Favorites.styled";
 import { Wrap } from "../Main/Main.styled";
 
 import {
@@ -20,7 +21,7 @@ export function Favorites() {
   const dispatch = useDispatch();
 
   return (
-    <Wrap>
+    <Backround>
       <Title>Your favorite cars:</Title>
       <CarUl>
         {favoriteCars?.map((data) => (
@@ -49,6 +50,6 @@ export function Favorites() {
           </CarLi>
         ))}
       </CarUl>
-    </Wrap>
+    </Backround>
   );
 }
