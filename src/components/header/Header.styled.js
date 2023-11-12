@@ -21,6 +21,7 @@ export const NavLinks = styled.nav`
   display: flex;
   gap: 20px;
   margin-left: 20px;
+  margin-right: 20px;
 `;
 
 export const NavLink = styled(Link)`
@@ -34,5 +35,20 @@ export const NavLink = styled(Link)`
 
   &:hover {
     background-color: #1a53ff;
+  }
+`;
+export const RentButton = styled.a`
+  background-color: #28a745;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #218838;
   }
 `;

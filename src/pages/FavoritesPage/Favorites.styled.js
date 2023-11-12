@@ -19,6 +19,18 @@ export const CarUl = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #f7f7fb;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 `;
 
 export const CarLi = styled.li`

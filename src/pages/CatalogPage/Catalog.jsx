@@ -35,6 +35,7 @@ export function Catalog() {
   useEffect(() => {
     async function fetchData() {
       try {
+        setIsLoading(true);
         const response = await fetch(perPage, page);
 
         if (response?.data.length < 12) {
@@ -60,13 +61,10 @@ export function Catalog() {
   useEffect(() => {
     async function fetchAllData() {
       try {
-        setIsLoading(true);
-
         const response = await fetchAll();
         setData(response.data);
         setFilterClicked(false);
         setShowButton(false);
-        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }

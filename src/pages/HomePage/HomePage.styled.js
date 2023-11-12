@@ -85,9 +85,9 @@ export const ImageCar1 = styled.div`
 `;
 export const ImageCar2 = styled.div`
   position: absolute;
-  right: 0;
+  right: 10px;
   bottom: 0;
-  width: 260px;
+  width: 250px;
   height: 200px;
 
   background-image: url(${camaro});

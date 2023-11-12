@@ -11,4 +11,6 @@ export const LogoStyled = styled(Link)`
   justify-content: center;
   align-items: center;
 `;
-export const Svg = styled.svg``;
+export const SvgLogo = styled.svg`
+  padding-bottom: 4px;
+`;
