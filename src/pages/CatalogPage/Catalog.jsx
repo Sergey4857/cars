@@ -7,6 +7,7 @@ import { LoadMore } from "./Catalog.styled";
 import Filters from "../../components/filters/Filters";
 import { useSelector } from "react-redux";
 import { selectFilter } from "../../redux/Selectors";
+import { Wrap } from "../Main/Main.styled";
 const BaseUrl = "https://654e19fbcbc3253557425b91.mockapi.io";
 
 export function Catalog() {
@@ -68,18 +69,20 @@ export function Catalog() {
   }, [page, perPage]);
 
   return (
-    <Container>
-      <Filters />
-      <CatalogList data={filteredCars} />
-      {showButton && !isLoading && (
-        <LoadMore
-          onClick={() => {
-            setPage(page + 1);
-          }}
-        >
-          Load more
-        </LoadMore>
-      )}
-    </Container>
+    <Wrap>
+      <Container>
+        <Filters />
+        <CatalogList data={filteredCars} />
+        {showButton && !isLoading && (
+          <LoadMore
+            onClick={() => {
+              setPage(page + 1);
+            }}
+          >
+            Load more
+          </LoadMore>
+        )}
+      </Container>
+    </Wrap>
   );
 }

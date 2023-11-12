@@ -22,12 +22,12 @@ export const CarLi = styled.li`
   display: flex;
   align-items: center;
   background-color: #f7f7fb;
-  border: 2px solid black;
+  border: 2px solid rgba(18, 20, 23, 0.1);
   border-radius: 24px;
 `;
 export const CarBtnDel = styled.button`
   display: flex;
-  width: 274px;
+  width: 25px;
   height: 44px;
   padding: 12px 99px;
   justify-content: center;

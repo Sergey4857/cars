@@ -5,7 +5,7 @@ export const HeaderStyled = styled.header`
   background-color: #f7f7fb;
 
   gap: 20px;
-  height: 50px;
+  height: 8vh;
   justify-content: center;
   align-items: center;
 `;

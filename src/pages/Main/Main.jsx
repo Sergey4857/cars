@@ -8,11 +8,10 @@ export function Main() {
   return (
     <>
       <Header />
-      <Wrap>
-        <Suspense>
-          <Outlet />
-        </Suspense>
-      </Wrap>
+
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
