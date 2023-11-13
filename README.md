@@ -1,4 +1,4 @@
-# Car Rental Services - [Your Company Name]
+# Car Rental Services 
 
 ## Introduction
 
