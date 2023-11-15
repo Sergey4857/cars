@@ -19,6 +19,7 @@ export function Catalog() {
 
   const [filterClicked, setFilterClicked] = useState(false);
   const filter = useSelector(selectFilter);
+  const [resetData, setResetData] = useState(false);
 
   const filterCar = (car) => {
     return filterCars(car, filter);
@@ -37,7 +38,7 @@ export function Catalog() {
       try {
         setIsLoading(true);
         const response = await fetch(perPage, page);
-
+        setResetData(false);
         if (response?.data.length < 12) {
           setShowButton(false);
         }
@@ -56,7 +57,7 @@ export function Catalog() {
     }
 
     fetchData();
-  }, [page, perPage]);
+  }, [page, perPage, resetData]);
 
   useEffect(() => {
     async function fetchAllData() {
@@ -78,6 +79,7 @@ export function Catalog() {
       <Wrap>
         <Container>
           <Filters
+            setResetData={setResetData}
             setFilterClicked={setFilterClicked}
             setShowButton={setShowButton}
           />

@@ -5,7 +5,7 @@ export const ModalBackdropDiv = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 990000000000000;
   width: 100%;
   height: 100%;
 
@@ -31,7 +31,7 @@ export const ModalBackdropDiv = styled.div`
 
 export const ModalDiv = styled.div`
   position: fixed;
-  z-index: 99;
+  z-index: 9900000000000;
   top: 50%;
   left: 50%;
   translate: -50% -50%;
@@ -109,14 +109,14 @@ export const CloseModalIcon = styled.svg`
 
 export const CarsModal = styled.div`
   padding: 40px;
-  width: 541px;
+  max-width: 541px;
   min-height: 752px;
   background: #fff;
   border-radius: 24px;
 `;
 
 export const ModalImage = styled.img`
-  max-width: 461px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 14px;

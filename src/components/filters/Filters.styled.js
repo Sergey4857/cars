@@ -52,6 +52,7 @@ export const Group = styled.div`
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
+    gap: 18px;
   }
 `;
 export const Brand = styled.div`
@@ -59,8 +60,9 @@ export const Brand = styled.div`
   flex-direction: column;
   gap: 8px;
   width: 50%;
+  position: relative;
   @media screen and (min-width: 768px) {
-    width: 100%;
+    width: 200px;
   }
 `;
 export const Price = styled.div`
@@ -68,8 +70,9 @@ export const Price = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  position: relative;
   @media screen and (min-width: 768px) {
-    width: 100%;
+    width: 125px;
   }
 `;
 
@@ -99,11 +102,10 @@ export const InputFrom = styled.input`
 
   background: ${({ theme }) => theme.color.whiteFirst};
   border-right: 2px solid #e1e1e4;
-  &::placeholder {
-    color: ${({ theme }) => theme.color.black};
-    font-size: 18px;
-    font-weight: 500;
-    line-height: calc(20 / 18);
+  transition: border 150ms ease-in-out;
+  &:hover {
+    border: 2px solid #3470ff;
+    cursor: pointer;
   }
 
   @media screen and(min-width:768px) {
@@ -117,12 +119,19 @@ export const InputTo = styled.input`
   border-radius: 0px 14px 14px 0px;
   border-color: transparent;
   background: ${({ theme }) => theme.color.whiteFirst};
+  border: 2px solid transparent;
   &::placeholder {
     color: ${({ theme }) => theme.color.black};
     font-size: 18px;
     font-weight: 500;
     line-height: calc(20 / 18);
   }
+  transition: border 150ms ease-in-out;
+  &:hover {
+    border: 2px solid #3470ff;
+    cursor: pointer;
+  }
+
   @media screen and(min-width:1440px) {
   }
 `;
@@ -142,10 +151,17 @@ export const LabelFrom = styled.label`
 export const FromDiv = styled.div`
   width: 170px;
   position: relative;
+  &:hover .label {
+    color: #3470ff;
+  }
 `;
 export const ToDiv = styled.div`
   width: 170px;
   position: relative;
+  transition: color 150ms ease-in-out;
+  &:hover .label {
+    color: #3470ff;
+  }
 `;
 
 export const LabelTo = styled.label`
@@ -166,19 +182,100 @@ export const Button = styled.button`
   border-radius: 12px;
   background: ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.fullWhite};
-  transition: background-color 300ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
   &:hover {
     background-color: ${({ theme }) => theme.color.hover};
   }
 `;
 
-export const Svg = styled.svg`
+export const SvgPrice = styled.svg`
   width: 20px;
   height: 20px;
+  transition:
+    stroke 150ms ease-in-out,
+    rotate 150ms ease-in-out;
+  rotate: ${({ isOpenPrice }) => (isOpenPrice ? "180deg" : "0deg")};
+`;
+export const SvgBrand = styled.svg`
+  width: 20px;
+  height: 20px;
+  transition:
+    stroke 150ms ease-in-out,
+    rotate 150ms ease-in-out;
+  rotate: ${({ isOpenBrand }) => (isOpenBrand ? "180deg" : "0deg")};
 `;
 
 export const ButtonGroup = styled.div`
   display: flex;
   gap: 20px;
   margin-top: auto;
+`;
+
+export const DropdownBtn = styled.button`
+  display: flex;
+  gap: 20px;
+  margin-top: auto;
+  background-color: grey;
+  /* max-width: 200px; */
+  height: 50px;
+  border-radius: 14px;
+  background: #f7f7fb;
+  padding-top: 14px;
+  padding-left: 18px;
+  padding-right: 18px;
+  justify-content: space-between;
+  border: 2px solid transparent;
+  transition:
+    color 150ms ease-in-out,
+    border 150ms ease-in-out,
+    fill 150ms ease-in-out;
+
+  &:hover {
+    border: 2px solid #3470ff;
+    color: #3470ff;
+    fill: #3470ff;
+  }
+`;
+export const DropdownList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  padding: 14px 8px 14px 18px;
+  gap: 8px;
+  max-height: 272px;
+  overflow: auto;
+  border-radius: 14px;
+  border: 2px solid rgba(18, 20, 23, 0.05);
+  background: #fff;
+  box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
+  color: rgba(18, 20, 23, 0.2);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(20 / 16);
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(18, 20, 23, 0.05);
+
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+`;
+export const DropdownItem = styled.li`
+  transition: color 150ms ease-in-out;
+
+  &:hover {
+    color: #3470ff;
+    cursor: pointer;
+  }
 `;

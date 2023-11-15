@@ -3,6 +3,9 @@ import {
   Brand,
   Button,
   ButtonGroup,
+  DropdownBtn,
+  DropdownItem,
+  DropdownList,
   FromDiv,
   Group,
   InputFrom,
@@ -12,21 +15,26 @@ import {
   LabelFrom,
   LabelTo,
   Price,
-  Svg,
+  SvgBrand,
+  SvgPrice,
   Title,
   ToDiv,
   Wrap,
 } from "./Filters.styled";
 import sprite from "../../assets/imgs_sprite/sprite.svg";
 import models from "./makes.json";
-import Dropdown from "react-dropdown";
+import price from "./price.json";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterCars } from "../../redux/filterSlice";
-import prices from "./price.json";
-import css from "./Dropdown.module.css";
 
-export default function Filters({ setFilterClicked, setShowButton }) {
+import prices from "./price.json";
+
+export default function Filters({
+  setFilterClicked,
+  setShowButton,
+  setResetData,
+}) {
   const initialState = {
     brand: "",
     price: "",
@@ -35,24 +43,56 @@ export default function Filters({ setFilterClicked, setShowButton }) {
   };
   const dispatch = useDispatch();
   const [filterData, setFilterData] = useState(initialState);
+  console.log(filterData);
+  const [optionValueBrand, setOpitionValueBrand] = useState("");
+  const [optionValuePrice, setOpitionValuePrice] = useState("");
+  const [optionsBrandOpened, setOptionsBrandOpened] = useState(false);
+  const [optionsPriceOpened, setOptionsPriceOpened] = useState(false);
+
+  const recetClick = (e) => {
+    // e.preventDefault();
+    // setResetData(true);
+    // if (JSON.stringify(filterData) === JSON.stringify(initialState)) {
+    //   return;
+    // }
+    // setFilterClicked(true);
+    // setShowButton(false);
+    // dispatch(filterCars(initialState));
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (JSON.stringify(filterData) === JSON.stringify(initialState)) {
-      return;
-    }
+    // if (JSON.stringify(filterData) === JSON.stringify(initialState)) {
+    //   return;
+    // }
     setFilterClicked(true);
     setShowButton(false);
     dispatch(filterCars(filterData));
   };
 
-  const onBrandChange = (value) => {
-    const input = { brand: value.value };
-    setFilterData((prevState) => ({ ...prevState, ...input }));
-  };
-  const onPriceChange = (value) => {
-    const input = { price: value.value };
-    setFilterData((prevState) => ({ ...prevState, ...input }));
+  const handleOptionClick = (e, option) => {
+    const name = e.target.attributes.name.value;
+    if (name === "brand") {
+      setOpitionValueBrand(option);
+      const brand = { [name]: option };
+      setFilterData((prevState) => ({
+        ...prevState,
+        ...brand,
+      }));
+
+      setOptionsBrandOpened(false);
+    }
+    if (name === "price") {
+      setOpitionValuePrice(option);
+
+      const price = { [name]: option };
+      setFilterData((prevState) => ({
+        ...prevState,
+        ...price,
+      }));
+    }
+
+    setOptionsPriceOpened(false);
   };
 
   const onChange = (e) => {
@@ -70,59 +110,73 @@ export default function Filters({ setFilterClicked, setShowButton }) {
       <Group>
         <Brand>
           <Title>Car brand</Title>
-          <Dropdown
-            value={filterData.brand}
-            options={models}
-            onChange={onBrandChange}
-            placeholder="Enter "
-            className={`${css.dropDown} ${css.dropDownMakes}`}
-            controlClassName={css.dropDownCtrl}
-            placeholderClassName={css.dropDownPlaceholderMakes}
-            menuClassName={css.dropDownMenu}
-            arrowClosed={
-              <Svg className="arrow-closed">
-                <use href={sprite + "#icon-down"}></use>
-              </Svg>
-            }
-            arrowOpen={
-              <Svg className="arrow-open">
-                <use href={sprite + "#icon-up"}></use>
-              </Svg>
-            }
-          ></Dropdown>
+          <DropdownBtn
+            onClick={() => {
+              setOptionsBrandOpened(!optionsBrandOpened);
+            }}
+          >
+            {optionValueBrand ? optionValueBrand : "All brands"}
+
+            <SvgBrand isOpenBrand={optionsBrandOpened}>
+              <use href={`${sprite}#icon-down`}></use>
+            </SvgBrand>
+          </DropdownBtn>
+          {optionsBrandOpened && (
+            <DropdownList>
+              {models.map((option) => (
+                <DropdownItem
+                  key={option}
+                  name="brand"
+                  onClick={(e) => {
+                    handleOptionClick(e, option);
+                  }}
+                >
+                  {option}
+                </DropdownItem>
+              ))}
+            </DropdownList>
+          )}
         </Brand>
 
         <Price>
           <Title>Price/ 1 hour</Title>
-          <Dropdown
-            value="To $"
-            options={prices}
-            onChange={onPriceChange}
-            placeholder="To $"
-            className={`${css.dropDown} ${css.dropDownPrices}`}
-            controlClassName={`${css.dropDownCtrl} ${css.dropDownCtrlPrc}`}
-            placeholderClassName={css.dropDownPlaceholderMakes}
-            menuClassName={css.dropDownMenu}
-            arrowClosed={
-              <Svg className="arrow-closed">
-                <use href={sprite + "#icon-down"}></use>
-              </Svg>
-            }
-            arrowOpen={
-              <Svg className="arrow-open">
-                <use href={sprite + "#icon-up"}></use>
-              </Svg>
-            }
-          ></Dropdown>
+          <DropdownBtn
+            onClick={() => {
+              setOptionsPriceOpened(!optionsPriceOpened);
+            }}
+          >
+            {optionValuePrice ? optionValuePrice : "To $"}
+            <SvgPrice isOpenPrice={optionsPriceOpened}>
+              <use href={`${sprite}#icon-down`}></use>
+            </SvgPrice>
+          </DropdownBtn>
+          {optionsPriceOpened && (
+            <DropdownList>
+              {price.map((option) => (
+                <DropdownItem
+                  key={option}
+                  name="price"
+                  onClick={(e) => {
+                    handleOptionClick(e, option);
+                  }}
+                >
+                  {option}
+                </DropdownItem>
+              ))}
+            </DropdownList>
+          )}
         </Price>
       </Group>
 
       <Box>
         <InputGroup>
           <Title>Сar mileage / km</Title>
+
           <InputWrap>
             <FromDiv>
-              <LabelFrom htmlFor="from">From</LabelFrom>
+              <LabelFrom className="label" htmlFor="from">
+                From
+              </LabelFrom>
               <InputFrom
                 id="from"
                 name="from"
@@ -132,7 +186,9 @@ export default function Filters({ setFilterClicked, setShowButton }) {
             </FromDiv>
 
             <ToDiv>
-              <LabelTo htmlFor="to">To</LabelTo>
+              <LabelTo className="label" htmlFor="to">
+                To
+              </LabelTo>
               <InputTo
                 id="to"
                 type="number"
@@ -146,7 +202,7 @@ export default function Filters({ setFilterClicked, setShowButton }) {
           <Button type="submit" onClick={handleClick}>
             Search
           </Button>
-          <Button type="submit" onClick={handleClick}>
+          <Button type="submit" onClick={recetClick}>
             Recet
           </Button>
         </ButtonGroup>
