@@ -74,7 +74,7 @@ export function Catalog() {
   }, [filterClicked]);
 
   return (
-    <>
+    <Container>
       <Wrap>
         <Container>
           <Filters
@@ -94,6 +94,6 @@ export function Catalog() {
         </Container>
       </Wrap>
       {isLoading && <Spinner />}
-    </>
+    </Container>
   );
 }

@@ -11,17 +11,20 @@
   height: 48px;
   border-radius: 14px;
   z-index: 20;
-  width: 224px;
+}
+@media screen and (min-width: 768px) {
+  .dropDown {
+    width: 224px;
+  }
 }
 
 .dropDownMakes {
-  display: block;
   padding-top: 14px;
-  width: 224px;
+  /* width: 164px; */
   border-radius: 14px;
 }
 .dropDownPrices {
-  width: 125px;
+  max-width: 164px;
   display: block;
   padding-top: 14px;
   border-radius: 14px;
@@ -32,14 +35,15 @@
   border: none;
   justify-content: center;
   align-items: center;
-  gap: 51px;
-  padding: unset;
+  padding-left: 18px;
+  padding-right: 18px;
   background-color: transparent;
+  justify-content: space-between;
 }
 .dropDownCtrlPrc {
   display: flex;
   border: none;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   padding-left: 18px;
@@ -61,7 +65,8 @@
 }
 
 .dropDownPlaceholderMakes {
-  width: 117px;
+  display: block;
+  /* width: 117px; */
 }
 .dropDownPlaceholderPrice {
   width: 40px;

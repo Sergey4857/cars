@@ -5,11 +5,18 @@ export const StyledItem = styled.li`
   position: relative;
   flex-direction: column;
   height: 426px;
-  width: calc((100% - 87px) / 4);
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 30px) / 2);
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: calc((100% - 87px) / 4);
+  }
 `;
 
 export const ContentImage = styled.img`
-  width: 274px;
+  width: 100%;
   height: 268px;
   border-radius: 14px;
   margin-bottom: 14px;
@@ -54,7 +61,7 @@ export const ModelNumb = styled.span`
 
 export const Button = styled.button`
   display: flex;
-  max-width: 274px;
+  width: 100%;
   height: 44px;
   padding: 12px 99px;
   justify-content: center;
@@ -62,6 +69,7 @@ export const Button = styled.button`
   border-radius: 12px;
   background-color: ${({ theme }) => theme.color.blue};
   margin-top: auto;
+
   font-size: 14px;
   font-weight: 600;
   line-height: calc(20 / 14);

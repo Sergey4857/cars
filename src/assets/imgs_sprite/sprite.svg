@@ -47,5 +47,9 @@
 <path fill="#000" style="fill: var(--color7, #000)" d="M22.872 5.889c0.844 0 1.53-0.686 1.53-1.53s-0.686-1.53-1.53-1.53c-0.844 0-1.53 0.686-1.53 1.53s0.686 1.53 1.53 1.53zM22.872 3.78c0.319 0 0.579 0.26 0.579 0.579s-0.26 0.579-0.579 0.579c-0.32 0-0.579-0.26-0.579-0.579s0.26-0.579 0.579-0.579z"></path>
 </symbol>
 
+ <symbol id="burger-menu" viewBox="0 0 32 32">
+      <path fill="none" style="stroke: var(--color1)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M4 16h16M4 8h24M4 24h24"></path>
+    </symbol>
+</symbol>
   </defs>
 </svg>
