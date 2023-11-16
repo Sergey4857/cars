@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
 
 export const HeaderStyled = styled.header`
   display: flex;
@@ -13,42 +12,40 @@ export const HeaderStyled = styled.header`
 export const Wrap = styled.nav`
   display: flex;
   align-items: center;
-
+  width: 339px;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
-`;
-export const NavLinks = styled.nav`
-  display: flex;
-  gap: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-`;
-
-export const NavLink = styled(Link)`
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #1a53ff;
+  gap: 5px;
+  @media screen and (min-width: 320px) {
+    gap: 5px;
+  }
+  @media screen and (min-width: 375px) {
+    gap: 32px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 732px;
+    justify-content: space-between;
   }
 `;
+
 export const RentButton = styled.a`
   background-color: #28a745;
   color: #ffffff;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 9999;
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
     background-color: #218838;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 10px 20px;
   }
 `;

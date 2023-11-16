@@ -1,25 +1,40 @@
 import {
+  Box,
+  Brand,
   Button,
+  ButtonGroup,
+  DropdownBtn,
+  DropdownItem,
+  DropdownList,
+  FromDiv,
   Group,
   InputFrom,
   InputGroup,
   InputTo,
+  InputWrap,
   LabelFrom,
   LabelTo,
-  Svg,
+  Price,
+  SvgBrand,
+  SvgPrice,
   Title,
+  ToDiv,
   Wrap,
 } from "./Filters.styled";
 import sprite from "../../assets/imgs_sprite/sprite.svg";
 import models from "./makes.json";
-import Dropdown from "react-dropdown";
-import { useState } from "react";
+import price from "./price.json";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterCars } from "../../redux/filterSlice";
-import prices from "./price.json";
-import css from "./Dropdown.module.css";
 
-export default function Filters({ setFilterClicked, setShowButton }) {
+import prices from "./price.json";
+
+export default function Filters({
+  setFilterClicked,
+  setShowButton,
+  setResetData,
+}) {
   const initialState = {
     brand: "",
     price: "",
@@ -28,24 +43,56 @@ export default function Filters({ setFilterClicked, setShowButton }) {
   };
   const dispatch = useDispatch();
   const [filterData, setFilterData] = useState(initialState);
+  console.log(filterData);
+  const [optionValueBrand, setOpitionValueBrand] = useState("");
+  const [optionValuePrice, setOpitionValuePrice] = useState("");
+  const [optionsBrandOpened, setOptionsBrandOpened] = useState(false);
+  const [optionsPriceOpened, setOptionsPriceOpened] = useState(false);
+
+  const recetClick = (e) => {
+    // e.preventDefault();
+    // setResetData(true);
+    // if (JSON.stringify(filterData) === JSON.stringify(initialState)) {
+    //   return;
+    // }
+    // setFilterClicked(true);
+    // setShowButton(false);
+    // dispatch(filterCars(initialState));
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (JSON.stringify(filterData) === JSON.stringify(initialState)) {
-      return;
-    }
+    // if (JSON.stringify(filterData) === JSON.stringify(initialState)) {
+    //   return;
+    // }
     setFilterClicked(true);
     setShowButton(false);
     dispatch(filterCars(filterData));
   };
 
-  const onBrandChange = (value) => {
-    const input = { brand: value.value };
-    setFilterData((prevState) => ({ ...prevState, ...input }));
-  };
-  const onPriceChange = (value) => {
-    const input = { price: value.value };
-    setFilterData((prevState) => ({ ...prevState, ...input }));
+  const handleOptionClick = (e, option) => {
+    const name = e.target.attributes.name.value;
+    if (name === "brand") {
+      setOpitionValueBrand(option);
+      const brand = { [name]: option };
+      setFilterData((prevState) => ({
+        ...prevState,
+        ...brand,
+      }));
+
+      setOptionsBrandOpened(false);
+    }
+    if (name === "price") {
+      setOpitionValuePrice(option);
+
+      const price = { [name]: option };
+      setFilterData((prevState) => ({
+        ...prevState,
+        ...price,
+      }));
+    }
+
+    setOptionsPriceOpened(false);
   };
 
   const onChange = (e) => {
@@ -58,81 +105,126 @@ export default function Filters({ setFilterClicked, setShowButton }) {
     setFilterData((prevState) => ({ ...prevState, ...inputData }));
   };
 
+  // useEffect(() => {
+  //   const clickOutside = (e) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+  //       setOnShowDropdown(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("click", clickOutside);
+  //   return () => {
+  //     document.removeEventListener("click", clickOutside);
+  //   };
+  // }, []);
+
   return (
     <Wrap>
       <Group>
-        <Title>Car brand</Title>
-        <Dropdown
-          value={filterData.brand}
-          options={models}
-          onChange={onBrandChange}
-          placeholder="Enter the text"
-          className={`${css.dropDown} ${css.dropDownMakes}`}
-          controlClassName={css.dropDownCtrl}
-          placeholderClassName={css.dropDownPlaceholderMakes}
-          menuClassName={css.dropDownMenu}
-          arrowClosed={
-            <Svg className="arrow-closed">
-              <use href={sprite + "#icon-down"}></use>
-            </Svg>
-          }
-          arrowOpen={
-            <Svg className="arrow-open">
-              <use href={sprite + "#icon-up"}></use>
-            </Svg>
-          }
-        ></Dropdown>
+        <Brand>
+          <Title>Car brand</Title>
+          <DropdownBtn
+            onClick={(e) => {
+              console.log(e.target);
+              console.log(e.currentTarget);
+              setOptionsBrandOpened(!optionsBrandOpened);
+              if (e.target !== e.currentTarget) {
+                setOptionsBrandOpened(false);
+              }
+            }}
+          >
+            {optionValueBrand ? optionValueBrand : "All brands"}
+
+            <SvgBrand isOpenBrand={optionsBrandOpened}>
+              <use href={`${sprite}#icon-down`}></use>
+            </SvgBrand>
+          </DropdownBtn>
+          {optionsBrandOpened && (
+            <DropdownList>
+              {models.map((option) => (
+                <DropdownItem
+                  key={option}
+                  name="brand"
+                  onClick={(e) => {
+                    handleOptionClick(e, option);
+                  }}
+                >
+                  {option}
+                </DropdownItem>
+              ))}
+            </DropdownList>
+          )}
+        </Brand>
+
+        <Price>
+          <Title>Price/ 1 hour</Title>
+          <DropdownBtn
+            onClick={() => {
+              setOptionsPriceOpened(!optionsPriceOpened);
+            }}
+          >
+            {optionValuePrice ? optionValuePrice : "To $"}
+            <SvgPrice isOpenPrice={optionsPriceOpened}>
+              <use href={`${sprite}#icon-down`}></use>
+            </SvgPrice>
+          </DropdownBtn>
+          {optionsPriceOpened && (
+            <DropdownList>
+              {price.map((option) => (
+                <DropdownItem
+                  key={option}
+                  name="price"
+                  onClick={(e) => {
+                    handleOptionClick(e, option);
+                  }}
+                >
+                  {option}
+                </DropdownItem>
+              ))}
+            </DropdownList>
+          )}
+        </Price>
       </Group>
 
-      <Group>
-        <Title>Price/ 1 hour</Title>
-        <Dropdown
-          value="To $"
-          options={prices}
-          onChange={onPriceChange}
-          placeholder="To $"
-          className={`${css.dropDown} ${css.dropDownPrices}`}
-          controlClassName={`${css.dropDownCtrl} ${css.dropDownCtrlPrc}`}
-          placeholderClassName={css.dropDownPlaceholderMakes}
-          menuClassName={css.dropDownMenu}
-          arrowClosed={
-            <Svg className="arrow-closed">
-              <use href={sprite + "#icon-down"}></use>
-            </Svg>
-          }
-          arrowOpen={
-            <Svg className="arrow-open">
-              <use href={sprite + "#icon-up"}></use>
-            </Svg>
-          }
-        ></Dropdown>
-      </Group>
-
-      <Group>
-        <Title>Сar mileage / km</Title>
+      <Box>
         <InputGroup>
-          <LabelFrom htmlFor="from">From</LabelFrom>
-          <InputFrom
-            id="from"
-            name="from"
-            type="number"
-            onChange={onChange}
-          ></InputFrom>
+          <Title>Сar mileage / km</Title>
 
-          <LabelTo htmlFor="to">To</LabelTo>
+          <InputWrap>
+            <FromDiv>
+              <LabelFrom className="label" htmlFor="from">
+                From
+              </LabelFrom>
+              <InputFrom
+                id="from"
+                name="from"
+                type="number"
+                onChange={onChange}
+              ></InputFrom>
+            </FromDiv>
 
-          <InputTo
-            id="to"
-            type="number"
-            name="to"
-            onChange={onChange}
-          ></InputTo>
+            <ToDiv>
+              <LabelTo className="label" htmlFor="to">
+                To
+              </LabelTo>
+              <InputTo
+                id="to"
+                type="number"
+                name="to"
+                onChange={onChange}
+              ></InputTo>
+            </ToDiv>
+          </InputWrap>
         </InputGroup>
-      </Group>
-
-      <Button type="submit" onClick={handleClick}>
-        Search
-      </Button>
+        <ButtonGroup>
+          <Button type="submit" onClick={handleClick}>
+            Search
+          </Button>
+          <Button type="submit" onClick={recetClick}>
+            Recet
+          </Button>
+        </ButtonGroup>
+      </Box>
     </Wrap>
   );
 }

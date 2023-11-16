@@ -10,6 +10,7 @@ export const LogoStyled = styled(Link)`
   height: 50px;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 `;
 export const SvgLogo = styled.svg`
   padding-bottom: 4px;
