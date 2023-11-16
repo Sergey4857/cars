@@ -24,7 +24,7 @@ import {
 import sprite from "../../assets/imgs_sprite/sprite.svg";
 import models from "./makes.json";
 import price from "./price.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterCars } from "../../redux/filterSlice";
 
@@ -105,14 +105,32 @@ export default function Filters({
     setFilterData((prevState) => ({ ...prevState, ...inputData }));
   };
 
+  // useEffect(() => {
+  //   const clickOutside = (e) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+  //       setOnShowDropdown(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("click", clickOutside);
+  //   return () => {
+  //     document.removeEventListener("click", clickOutside);
+  //   };
+  // }, []);
+
   return (
     <Wrap>
       <Group>
         <Brand>
           <Title>Car brand</Title>
           <DropdownBtn
-            onClick={() => {
+            onClick={(e) => {
+              console.log(e.target);
+              console.log(e.currentTarget);
               setOptionsBrandOpened(!optionsBrandOpened);
+              if (e.target !== e.currentTarget) {
+                setOptionsBrandOpened(false);
+              }
             }}
           >
             {optionValueBrand ? optionValueBrand : "All brands"}

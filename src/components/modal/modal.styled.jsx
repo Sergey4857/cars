@@ -82,7 +82,7 @@ export const ModalDiv = styled.div`
 `;
 
 export const CloseModalButton = styled.button`
-  width: 22px;
+  max-width: 22px;
   height: 22px;
   background-color: transparent;
   border: none;
@@ -109,14 +109,19 @@ export const CloseModalIcon = styled.svg`
 
 export const CarsModal = styled.div`
   padding: 40px;
-  max-width: 541px;
+  width: 300px;
   min-height: 752px;
   background: #fff;
   border-radius: 24px;
+  @media screen and (min-width: 375px) {
+    width: 350px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 541px;
+  }
 `;
 
 export const ModalImage = styled.img`
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 14px;
@@ -125,16 +130,31 @@ export const ModalImage = styled.img`
 `;
 export const ModelWrapper = styled.div`
   display: flex;
-  width: 277px;
+  max-width: 277px;
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  max-width: 277px;
+  gap: 8px;
+`;
+
 export const ModelBox = styled.div`
   display: flex;
+  flex-wrap: wrap;
+`;
+export const ModelContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 `;
 export const ModalDesc = styled.p`
   color: #121417;
   font-size: 14px;
   line-height: calc(20 / 14);
   margin-top: 14px;
+  display: block;
+  width: 100%;
 `;
 
 export const ModalTitle = styled.h2`
@@ -186,7 +206,7 @@ export const ConditionTag = styled.div`
   padding: 7px 14px;
   justify-content: center;
   align-items: center;
-  margin-right: 8px;
+
   border-radius: 35px;
   background: #f9f9f9;
 

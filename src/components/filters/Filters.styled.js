@@ -213,10 +213,8 @@ export const ButtonGroup = styled.div`
 
 export const DropdownBtn = styled.button`
   display: flex;
-  gap: 20px;
   margin-top: auto;
   background-color: grey;
-  /* max-width: 200px; */
   height: 50px;
   border-radius: 14px;
   background: #f7f7fb;

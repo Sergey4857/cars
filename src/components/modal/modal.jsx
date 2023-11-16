@@ -27,6 +27,8 @@ import {
   ConditionTag,
   ConditionSpan,
   FontStyled,
+  Wrapper,
+  ModelContent,
 } from "./modal.styled";
 
 const number = "+380730000000";
@@ -141,7 +143,7 @@ export default function ModalWindow(props) {
             <ModalTitle>Rental Conditions: </ModalTitle>
 
             <Conditions>
-              <ModelWrapper>
+              <Wrapper>
                 <ConditionTag>
                   <FontStyled>Minimum age:</FontStyled>
                   <ConditionSpan>
@@ -156,8 +158,8 @@ export default function ModalWindow(props) {
                 <ConditionTag>
                   {data.rentalConditions?.split("\n")[1]}
                 </ConditionTag>
-              </ModelWrapper>
-              <ModelBox>
+              </Wrapper>
+              <ModelContent>
                 <ConditionTag>
                   {data.rentalConditions?.split("\n")[2]}
                 </ConditionTag>
@@ -171,7 +173,7 @@ export default function ModalWindow(props) {
                   <FontStyled>Price:</FontStyled>{" "}
                   <ConditionSpan>{data.rentalPrice}</ConditionSpan>
                 </ConditionTag>
-              </ModelBox>
+              </ModelContent>
             </Conditions>
 
             <StyledLink href={`tel:${number}`}>Rental car</StyledLink>
